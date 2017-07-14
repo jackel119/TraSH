@@ -1,12 +1,12 @@
 CC      = gcc
-CFLAGS  = -Wall -g -D_DEFAULT_SOURCE -std=c99 -Werror -pedantic -Iinclude
+CFLAGS  = -Wall -g -D_DEFAULT_SOURCE -std=c99 -pedantic -Iinclude
 
-SOURCES = $(shell find $(basedir) -name '*.c') $(shell find ../utils -name '*.c')
+SOURCES = $(shell find $(basedir) -name '*.c') 
 OBJECTS = $(addprefix $(objdir)/, $(SOURCES:.c=.o))
 HEADERS = $(shell find $(basedir) -name '*.h')
 
 basedir = .
-objdir 	= ../out/emulator
+objdir 	= ../out
 
 .SUFFIXES: .c .o
 
@@ -14,7 +14,7 @@ objdir 	= ../out/emulator
 
 all: ../trash
 
-../shell: $(OBJECTS)
+../trash: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 $(objdir):
