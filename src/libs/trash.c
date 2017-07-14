@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <trash.h>
+#include <pwd.h>
 
 
 int main(void) {
@@ -8,6 +9,7 @@ int main(void) {
 
   // Command Loop 
   while (1) {
+    shell_prompt();
     run();
   }
 

@@ -10,7 +10,7 @@ int execute(char **tokens) {
   if (this_id == 0) {
     // Child process
     if (execvp(tokens[0], tokens) == -1) {
-      fprintf(stderr, "Error executing the command\n");
+      fprintf(stderr, "Unknown Command: %s \n", tokens[0]);
     }
     exit(EXIT_FAILURE);
   } else if (this_id < 0) {
